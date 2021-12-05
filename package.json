@@ -1,6 +1,6 @@
 {
     "name": "weather",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "private": true,
     "author": {
         "email": "admin@lectrum.io",
@@ -18,33 +18,32 @@
         "lint:fix": "eslint ./src/** --ext .{js,jsx} -c .eslintrc --no-error-on-unmatched-pattern --fix"
     },
     "engines": {
-        "node": "14.x"
+        "node": ">=14.x"
     },
     "dependencies": {
-        "@hookform/resolvers": "2.8.0",
-        "axios": "0.21.4",
-        "date-fns": "2.24.0",
-        "mobx": "^6.3.3",
-        "mobx-react-lite": "^3.2.1",
+        "@hookform/resolvers": "2.8.4",
+        "axios": "0.24.0",
+        "date-fns": "2.27.0",
+        "mobx": "^6.3.8",
+        "mobx-react-lite": "^3.2.2",
         "mobx-utils": "^6.0.4",
         "react": "17.0.2",
         "react-dom": "17.0.2",
         "react-loader-spinner": "^4.0.0",
-        "react-query": "3.23.2",
-        "react-redux": "7.2.5",
+        "react-query": "3.34.0",
         "react-scripts": "4.0.3",
-        "yup": "0.32.9"
+        "yup": "0.32.11"
     },
     "devDependencies": {
-        "@babel/eslint-parser": "^7.15.4",
-        "@babel/plugin-proposal-class-properties": "^7.14.5",
-        "@babel/plugin-syntax-jsx": "^7.14.5",
+        "@babel/eslint-parser": "^7.16.3",
+        "@babel/plugin-proposal-class-properties": "^7.16.0",
+        "@babel/plugin-syntax-jsx": "^7.16.0",
         "@sotream/eslint-config-react-js": "0.1.0",
         "eslint": "7.32.0",
         "eslint-config-prettier": "8.3.0",
         "prettier-eslint": "13.0.0",
         "prettier-eslint-cli": "5.0.1",
-        "sass": "1.41.1",
-        "serve": "12.0.1"
+        "sass": "1.44.0",
+        "serve": "13.0.2"
     }
 }
