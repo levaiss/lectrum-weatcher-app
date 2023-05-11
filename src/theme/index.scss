@@ -1,18 +1,12 @@
-@import './reset';
-@import './base';
-@import './palette';
-@import './fonts';
+@import './reset.scss';
+@import './base.scss';
+@import './palette.scss';
+@import './fonts.scss';
 
 @import './filter.scss';
 @import './head.scss';
 @import './current-weather.scss';
 @import './forecast.scss';
-
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
 
 body {
     background-image: url('./assets/bg.png');

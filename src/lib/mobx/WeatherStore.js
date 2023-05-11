@@ -8,32 +8,30 @@ export class WeatherStore {
     maxTemperature = '';
     isFiltered = false;
     selectedDayId = '';
+    filteredDays = computedFn((days) => {
+        return days.filter((day) => {
+            const isCorrectType = this.type
+                ? this.type === day.type
+                : true;
+            const isCorrectMinTemperature = this.minTemperature
+                ? this.minTemperature <= String(day.temperature)
+                : true;
+            const isCorrectMaxTemperature = this.maxTemperature
+                ? this.maxTemperature >= String(day.temperature)
+                : true;
+
+            return (
+                isCorrectType
+                && isCorrectMinTemperature
+                && isCorrectMaxTemperature
+            );
+        });
+    });
 
     constructor() {
-        this
-            .filteredDays = computedFn((days) => {
-                const filteredDays = days.filter((day) => {
-                    const isCorrectType = this.type
-                        ? this.type === day.type
-                        : true;
-                    const isCorrectMinTemperature = this.minTemperature
-                        ? this.minTemperature <= String(day.temperature)
-                        : true;
-                    const isCorrectMaxTemperature = this.maxTemperature
-                        ? this.maxTemperature >= String(day.temperature)
-                        : true;
-
-                    return (
-                        isCorrectType
-                    && isCorrectMinTemperature
-                    && isCorrectMaxTemperature
-                    );
-                });
-
-                return filteredDays;
-            });
-
-        makeAutoObservable(this);
+        makeAutoObservable(this, { rootStore: false }, {
+            autoBind: true,
+        });
     }
 
     setType(type) {
@@ -79,5 +77,3 @@ export class WeatherStore {
         this.isFiltered = false;
     }
 }
-
-export const store = new WeatherStore();

@@ -5,11 +5,13 @@ import { configure } from 'mobx';
 
 // Components
 import { App } from './app';
-import { Provider } from './lib/Provider';
+import { StoreProvider } from './lib/StoreProvider';
 
 // Instruments
-import './theme/index.scss';
 import { queryClient } from './lib/react-query';
+
+// Styles
+import './theme/index.scss';
 
 configure({
     enforceActions:             'always',
@@ -19,11 +21,11 @@ configure({
 });
 
 render(
-    <Provider>
+    <StoreProvider>
         <QueryClientProvider client = { queryClient }>
             <App />
         </QueryClientProvider>
-    </Provider>,
+    </StoreProvider>,
     document.getElementById('root'),
     () => {
         // eslint-disable-next-line no-console

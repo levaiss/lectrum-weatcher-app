@@ -2,8 +2,8 @@
 .head {
     display: flex;
     justify-content: center;
-    margin-top: 60px;
-    margin-bottom: 83px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .head .cloudy {
@@ -36,11 +36,11 @@
 .head .current-date p {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    font-size: 28px;
+    font-size: 20px;
     color: $color1;
     display: inline-block;
-    margin-top: 15px;
-    margin-bottom: 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 .head .current-date span {

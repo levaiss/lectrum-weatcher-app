@@ -1,14 +1,14 @@
-// Components
+// Layouts
+import { DefaultLayout } from './layouts/DefaultLayout';
 
-
-// Instruments
-
+// Pages
+import { HomePage } from './pages/HomePage';
 
 export const App = () => {
     return (
-        <main>
-            <h1>Продвинутый виджет погоды</h1>
-        </main>
+        <DefaultLayout>
+            <HomePage />
+        </DefaultLayout>
     );
 };
 
