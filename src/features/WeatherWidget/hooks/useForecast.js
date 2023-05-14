@@ -34,10 +34,13 @@ export function useForecast() {
     const selectedDay = currentForecast.find(({ id }) => id === selectedDayId);
     const updateCurrentForecast = (forecast) => {
         const forecastWithLimit = forecast.splice(0, 7);
+        let firstDayId;
         if (forecastWithLimit?.length) {
-            const firstDay = forecastWithLimit[ 0 ];
-            setSelectedDayId(firstDay.id);
+            firstDayId = forecastWithLimit[ 0 ].id;
+        } else {
+            firstDayId = '';
         }
+        setSelectedDayId(firstDayId);
         setCurrentForecast(forecastWithLimit);
     };
     const filterCurrentForecast = (forecast) => {
