@@ -7,9 +7,9 @@ import { useStore } from '../../../hooks/useStore';
 
 // Instruments
 import { api } from '../../../api';
+import { getFilteredForecast } from '../../../utils/forecast-filter';
 
 export function useForecast() {
-    console.log('useForecast');
     const [
         currentForecast,
         setCurrentForecast,
@@ -17,7 +17,7 @@ export function useForecast() {
     const {
         weatherStore: {
             isFiltered,
-            filteredDays,
+            filters,
             selectedDayId,
             setSelectedDayId,
         },
@@ -36,20 +36,18 @@ export function useForecast() {
         const forecastWithLimit = forecast.splice(0, 7);
         if (forecastWithLimit?.length) {
             const firstDay = forecastWithLimit[ 0 ];
-            setCurrentForecast(forecastWithLimit);
             setSelectedDayId(firstDay.id);
         }
+        setCurrentForecast(forecastWithLimit);
     };
     const filterCurrentForecast = (forecast) => {
         if (!Array.isArray(forecast)) {
             return false;
         }
-        console.log('filterCurrentForecast');
-        updateCurrentForecast(filteredDays(forecast));
+        updateCurrentForecast(getFilteredForecast(forecast, filters));
     };
 
     useEffect(() => {
-        console.log('useEffect');
         filterCurrentForecast(forecastData);
     }, [isSuccess, isFiltered]);
 

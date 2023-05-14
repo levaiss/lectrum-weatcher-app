@@ -1,0 +1,26 @@
+.ui-button {
+    background-color: $color2;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: $color1;
+    text-transform: uppercase;
+
+    &:hover {
+        cursor: pointer;
+        background-color: $color3;
+    }
+
+    &:disabled {
+        opacity: 0.3;
+    }
+
+    &:disabled:hover {
+        cursor: not-allowed;
+        background-color: $color2;
+    }
+}

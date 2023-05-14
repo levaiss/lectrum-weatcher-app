@@ -3,7 +3,7 @@ import { formatDate } from '../../../../utils/format-date';
 
 export const CurrentWeather = ({ day }) => {
     if (!day) {
-        return null;
+        return <div className = 'head head-message'>По заданим критеріям немає доступних днів</div>;
     }
 
     return (

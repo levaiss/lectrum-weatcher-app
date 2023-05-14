@@ -1,0 +1,82 @@
+.ui-input {
+    $parent: &;
+    position: relative;
+
+    label {
+        display: inline-block;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        text-transform: uppercase;
+        color: $color1;
+        cursor: pointer;
+    }
+
+    input {
+        border-bottom: solid 1px $color1;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        background: transparent;
+        width: 40px;
+        outline: none;
+        color: $color1;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        text-align: center;
+        margin-left: 14px;
+    }
+
+    &__error-message {
+        color: $color6;
+        font-size: 15px;
+        padding-top: 6px;
+    }
+
+    &--radio {
+        padding-top: 3px;
+        padding-right: 35px;
+
+        input {
+            position: absolute;
+            visibility: hidden;
+
+            &:checked {
+                & ~ #{$parent}__radio::before {
+                    opacity: 1;
+                }
+            }
+        }
+
+        #{$parent} {
+
+            &__radio {
+                position: absolute;
+                top: 0;
+                right: 0;
+                display: inline-block;
+                width: 25px;
+                height: 25px;
+                color: $color1;
+                border: solid 1px $color1;
+                border-radius: 3px;
+                cursor: pointer;
+
+                &::before {
+                    content: '✓';
+                    position: absolute;
+                    right: 6px;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                }
+            }
+        }
+    }
+
+    &--disabled {
+        opacity: 0.6;
+        pointer-events: none;
+        user-select: none;
+    }
+}

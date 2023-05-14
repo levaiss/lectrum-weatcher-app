@@ -1,6 +1,5 @@
 // Core
 import { makeAutoObservable } from 'mobx';
-import { computedFn } from 'mobx-utils';
 
 export class WeatherStore {
     type = '';
@@ -8,25 +7,6 @@ export class WeatherStore {
     maxTemperature = '';
     isFiltered = false;
     selectedDayId = '';
-    filteredDays = computedFn((days) => {
-        return days.filter((day) => {
-            const isCorrectType = this.type
-                ? this.type === day.type
-                : true;
-            const isCorrectMinTemperature = this.minTemperature
-                ? this.minTemperature <= String(day.temperature)
-                : true;
-            const isCorrectMaxTemperature = this.maxTemperature
-                ? this.maxTemperature >= String(day.temperature)
-                : true;
-
-            return (
-                isCorrectType
-                && isCorrectMinTemperature
-                && isCorrectMaxTemperature
-            );
-        });
-    });
 
     constructor() {
         makeAutoObservable(this, { rootStore: false }, {
@@ -60,6 +40,14 @@ export class WeatherStore {
         }
 
         this.isFiltered = true;
+    }
+
+    get filters() {
+        return {
+            type:           this.type,
+            minTemperature: this.minTemperature,
+            maxTemperature: this.maxTemperature,
+        };
     }
 
     get isFormBlocked() {
