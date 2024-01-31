@@ -1,8 +1,6 @@
-# Первый персональный проект курса → [Профессиональный курс по React, Redux, MobX, TypeScript](https://lectrum.io/course/react-redux?utm_medium=referral&utm_source=gitlab-weather&utm_campaign=rtx)
+First personal course project → Professional course on React, Redux, MobX, TypeScript
 
-Добро пожаловать! 🚀
-
-1. Для установки зависимостей выполни:
+1. To install dependencies, run:
 
 ```sh
 yarn
@@ -10,7 +8,7 @@ yarn
 npm i
 ```
 
-2. Для запуска проекта выполни:
+2. To run the project, execute:
 
 ```sh
 yarn dev
@@ -18,7 +16,7 @@ yarn dev
 npm run dev
 ```
 
-3. Для сборки проекта выполни:
+3. To assemble the project, perform:
 
 ```sh
 yarn build
@@ -26,7 +24,7 @@ yarn build
 npm run build
 ```
 
-4. Для запуска проекта в режиме `production` выполни:
+4. To start the project in `production` mode execute:
 
 ```sh
 yarn build && yarn start  
